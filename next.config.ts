@@ -1,10 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  serverExternalPackages: ["mysql2", "drizzle-orm"],
   experimental: {
     agentFeedback: true,
+    serverActions: {
+      bodySizeLimit: "3mb",
+    },
   },
   cacheComponents: false,
   partialPrefetching: false,
@@ -16,9 +17,5 @@ const nextConfig: NextConfig = {
       },
     },
   },
-  serverActions: {
-    bodySizeLimit: "3mb",
-  },
 };
-
 export default nextConfig;
