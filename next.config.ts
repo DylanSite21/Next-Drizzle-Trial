@@ -2,11 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  serverExternalPackages: ["mysql2", "drizzle-orm"],
   experimental: {
     agentFeedback: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
+  cacheComponents: false,
+  partialPrefetching: false,
   turbopack: {
     rules: {
       "*.css": {
@@ -14,6 +15,9 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  serverActions: {
+    bodySizeLimit: "3mb",
   },
 };
 
